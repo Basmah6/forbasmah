@@ -106,7 +106,6 @@ function renderQ(){
           <path d="M40 20 C44 23 47 27 47 32 C47 37 44 41 40 44" stroke="#3B82F6" stroke-width="3" fill="none"/>
         </svg>
       </button>
-      <span id="audio-timer" class="audio-timer"></span>
     </div>
     
   ` : ''}
@@ -155,58 +154,17 @@ function next(){
 }
 
 let currentAudio = null;
-let timerInterval = null;
 
 function playAudio(src){
-
   if(currentAudio){
     currentAudio.pause();
     currentAudio.currentTime = 0;
   }
 
-  clearInterval(timerInterval);
-
   currentAudio = new Audio(src);
-
-  currentAudio.addEventListener('loadedmetadata', () => {
-
-    let remaining = Math.ceil(currentAudio.duration);
-
-    function updateTimer(){
-      const el = document.getElementById('audio-timer');
-      if(el){
-        el.textContent = remaining + 's';
-      }
-    }
-
-    updateTimer();
-
-    timerInterval = setInterval(() => {
-
-      remaining--;
-
-      if(remaining >= 0){
-        updateTimer();
-      }
-
-    }, 1000);
-
+  currentAudio.play().catch(err => {
+    console.log("Audio error:", err);
   });
-
-  currentAudio.onended = () => {
-
-    clearInterval(timerInterval);
-
-    const el = document.getElementById('audio-timer');
-
-    if(el){
-      el.textContent = '';
-    }
-
-  };
-
-  currentAudio.play();
-
 }
 
 function finish(){ if(state.timer) clearInterval(state.timer); try{ sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state.answers)); }catch{} location.href='results.html'; }
