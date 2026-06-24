@@ -1,0 +1,485 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Courses — Itqan English</title>
+<meta name="description" content="Browse Itqan English digital courses across all CEFR levels."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Noto+Kufi+Arabic:wght@400;500;600;700;800&display=swap"/>
+<link rel="stylesheet" href="styles.css"/>
+</head><body>
+
+<header class="header">
+  <div class="header-inner">
+
+    <a href="../index.html" class="logo">
+      <img src="../images/logo.png" alt="Logo" style="height:40px">
+    </a>
+
+    <nav class="nav">
+      <div class="menu-wrap">
+        <button id="menu-trigger" class="pill" aria-haspopup="true">
+          ☰ <span data-i18n="nav.menu"></span>
+        </button>
+
+        <div id="menu-panel" class="menu-panel">
+          <a href="../index.html" data-i18n="nav.home"></a>
+          <a href="courses.html" data-i18n="nav.courses"></a>
+          <a href="about.html" data-i18n="nav.about"></a>
+        </div>
+      </div>
+
+      <button class="pill" onclick="setLang(getLang()==='en'?'ar':'en')">
+        🌐 <span data-i18n="lang.toggle"></span>
+      </button>
+
+      <a href="test.html" class="cta" data-i18n="nav.start"></a>
+    </nav>
+
+  </div>
+</header>
+
+<section class="hero" style="border-bottom:1px solid color-mix(in oklch,var(--border) 60%,transparent)">
+  <div class="hero-bg"></div>
+  <div class="container text-center" style="padding:5rem 1.5rem">
+    <span class="badge">✨ <span data-i18n="courses.kicker"></span></span>
+    <h1 class="h1 mt-5" data-i18n="courses.title"></h1>
+    <p class="lead" style="margin:1.25rem auto 0;max-width:36rem" data-i18n="courses.subtitle"></p>
+  </div>
+</section>
+<main class="container" style="padding:4rem 1.5rem">
+  <div class="flex items-center gap-2 mb-6"><span style="color:var(--primary)">★</span><h2 class="text-2xl font-bold" data-i18n="courses.featured"></h2></div>
+  <div id="featured" class="grid grid-2"></div>
+
+  <div id="skills-container">
+
+    <div class="skill-block" data-skill="Foundation">
+  <h2 class="skill-title">
+  <img src="../images/FoundationIcon.png" class="skill-main-icon">
+  <span data-i18n="section.Foundation"></span>
+</h2>
+
+  <div class="skill-filters" id="foundation-filters"></div>
+
+  <div class="skill-grid" id="foundation-grid"></div>
+
+  <button class="view-toggle" data-skill="Foundation">
+    <span class="label" data-i18n="courses.viewMore"></span>
+    <span class="arrow">↓</span>
+  </button>
+</div>
+
+  <div class="skill-block" data-skill="Grammar">
+   <h2 class="skill-title">
+  <img src="../images/GrammarIcon.png" class="skill-main-icon">
+  <span data-i18n="section.Grammar"></span>
+</h2>
+    <div class="skill-filters" id="grammar-filters"></div>
+    <div class="skill-grid" id="grammar-grid"></div>
+    <button class="view-toggle" data-skill="Grammar">
+  <span class="label" data-i18n="courses.viewMore"></span>
+  <span class="arrow">↓</span>
+</button>
+  </div>
+
+  <div class="skill-block" data-skill="Reading">
+    <h2 class="skill-title">
+  <img src="../images/ReadingIcon.png" class="skill-main-icon">
+  <span data-i18n="section.Reading"></span>
+</h2>
+    <div class="skill-filters" id="reading-filters"></div>
+    <div class="skill-grid" id="reading-grid"></div>
+    <button class="view-toggle" data-skill="Reading">
+  <span class="label" data-i18n="courses.viewMore"></span>
+  <span class="arrow">↓</span>
+</button>
+  </div>
+
+  <div class="skill-block" data-skill="Writing">
+   <h2 class="skill-title">
+  <img src="../images/WritingIcon.png" class="skill-main-icon">
+  <span data-i18n="section.Writing"></span>
+</h2>
+    <div class="skill-filters" id="writing-filters"></div>
+    <div class="skill-grid" id="writing-grid"></div>
+    <button class="view-toggle" data-skill="Writing">
+  <span class="label" data-i18n="courses.viewMore"></span>
+  <span class="arrow">↓</span>
+</button>
+  </div>
+
+  <div class="skill-block" data-skill="Listening">
+    <h2 class="skill-title">
+  <img src="../images/ListeningIcon.png" class="skill-main-icon">
+  <span data-i18n="section.Listening"></span>
+</h2>
+    <div class="skill-filters" id="listening-filters"></div>
+    <div class="skill-grid" id="listening-grid"></div>
+    <button class="view-toggle" data-skill="Listening">
+  <span class="label" data-i18n="courses.viewMore"></span>
+  <span class="arrow">↓</span>
+</button>
+  </div>
+
+  
+<div class="skill-block" data-skill="Vocabulary">
+  <h2 class="skill-title">
+  <img src="../images/VocabularyIcon.png" class="skill-main-icon">
+  <span data-i18n="section.Vocabulary"></span>
+</h2>
+  <div class="skill-filters" id="vocabulary-filters"></div>
+  <div class="skill-grid" id="vocabulary-grid"></div>
+  <button class="view-toggle" data-skill="Vocabulary">
+  <span class="label" data-i18n="courses.viewMore"></span>
+  <span class="arrow">↓</span>
+</button>
+</div>
+
+  <div class="card card-lg text-center" style="margin-top:5rem;padding:2.5rem">
+    <h3 class="h2" data-i18n="courses.cta.title"></h3>
+    <p class="muted mt-3" style="max-width:28rem;margin-left:auto;margin-right:auto" data-i18n="courses.cta.desc"></p>
+    <a href="test.html" class="cta cta-lg mt-6"><span data-i18n="courses.cta.button"></span> →</a>
+  </div>
+</main>
+
+<script>
+
+const SKILL_COURSES = {
+  Foundation: {
+    All: [
+      { key: "foundation", level: "Free", title: "Foundation Course", price: "Free" }
+    ],
+    Free: [
+      { key: "foundation", level: "Free", title: "Foundation Course", price: "Free" }
+    ]
+  },
+
+  Grammar: {
+    All: [
+      { key: "grammar_a1", level: "A1", title: "Grammar for level A1", price: "150" },
+      { key: "grammar_a2", level: "A2", title: "Grammar for level A2", price: "160" },
+      { key: "grammar_b1", level: "B1", title: "Grammar for level B1", price: "170" },
+      { key: "grammar_b2", level: "B2", title: "Grammar for level B2", price: "200" },
+      { key: "grammar_c1", level: "C1", title: "Grammar for level C1", price: "250" },
+      { key: "grammar_c2", level: "C2", title: "Grammar for level C2", price: "300" }
+    ],
+    A1: [{ key: "grammar_a1", level: "A1", title: "Grammar for level A1", price: "150" }],
+    A2: [{ key: "grammar_a2", level: "A2", title: "Grammar for level A2", price: "160" }],
+    B1: [{ key: "grammar_b1", level: "B1", title: "Grammar for level B1", price: "170" }],
+    B2: [{ key: "grammar_b2", level: "B2", title: "Grammar for level B2", price: "200" }],
+    C1: [{ key: "grammar_c1", level: "C1", title: "Grammar for level C1", price: "250" }],
+    C2: [{ key: "grammar_c2", level: "C2", title: "Grammar for level C2", price: "300" }]
+  },
+
+  Reading: {
+    All: [
+      { key: "reading_a1", level: "A1", title: "Reading for level A1", price: "4.99" },
+      { key: "reading_a2", level: "A2", title: "Reading for level A2", price: "5.99" },
+      { key: "reading_b1", level: "B1", title: "Reading for level B1", price: "6.99" },
+      { key: "reading_b2", level: "B2", title: "Reading for level B2", price: "7.99" },
+      { key: "reading_c1", level: "C1", title: "Reading for level C1", price: "8.99" },
+      { key: "reading_c2", level: "C2", title: "Reading for level C2", price: "9.99" }
+    ],
+    A1: [{ key: "reading_a1", level: "A1", title: "Reading for level A1", price: "4.99" }],
+    A2: [{ key: "reading_a2", level: "A2", title: "Reading for level A2", price: "5.99" }],
+    B1: [{ key: "reading_b1", level: "B1", title: "Reading for level B1", price: "6.99" }],
+    B2: [{ key: "reading_b2", level: "B2", title: "Reading for level B2", price: "7.99" }],
+    C1: [{ key: "reading_c1", level: "C1", title: "Reading for level C1", price: "8.99" }],
+    C2: [{ key: "reading_c2", level: "C2", title: "Reading for level C2", price: "9.99" }]
+  },
+
+  Writing: {
+    All: [
+      { key: "writing_a1", level: "A1", title: "Writing for level A1", price: "4.99" },
+      { key: "writing_a2", level: "A2", title: "Writing for level A2", price: "5.99" },
+      { key: "writing_b1", level: "B1", title: "Writing for level B1", price: "6.99" },
+      { key: "writing_b2", level: "B2", title: "Writing for level B2", price: "7.99" },
+      { key: "writing_c1", level: "C1", title: "Writing for level C1", price: "8.99" },
+      { key: "writing_c2", level: "C2", title: "Writing for level C2", price: "9.99" }
+    ],
+    A1: [{ key: "writing_a1", level: "A1", title: "Writing for level A1", price: "4.99" }],
+    A2: [{ key: "writing_a2", level: "A2", title: "Writing for level A2", price: "5.99" }],
+    B1: [{ key: "writing_b1", level: "B1", title: "Writing for level B1", price: "6.99" }],
+    B2: [{ key: "writing_b2", level: "B2", title: "Writing for level B2", price: "7.99" }],
+    C1: [{ key: "writing_c1", level: "C1", title: "Writing for level C1", price: "8.99" }],
+    C2: [{ key: "writing_c2", level: "C2", title: "Writing for level C2", price: "9.99" }]
+  },
+
+  Listening: {
+    All: [
+      { key: "listening_a1", level: "A1", title: "Listening for level A1", price: "4.99" },
+      { key: "listening_a2", level: "A2", title: "Listening for level A2", price: "5.99" },
+      { key: "listening_b1", level: "B1", title: "Listening for level B1", price: "6.99" },
+      { key: "listening_b2", level: "B2", title: "Listening for level B2", price: "7.99" },
+      { key: "listening_c1", level: "C1", title: "Listening for level C1", price: "8.99" },{ key: "listening_c2", level: "C2", title: "Listening for level C2", price: "9.99" }
+    ],
+    A1: [{ key: "listening_a1", level: "A1", title: "Listening for level A1", price: "4.99" }],
+    A2: [{ key: "listening_a2", level: "A2", title: "Listening for level A2", price: "5.99" }],
+    B1: [{ key: "listening_b1", level: "B1", title: "Listening for level B1", price: "6.99" }],
+    B2: [{ key: "listening_b2", level: "B2", title: "Listening for level B2", price: "7.99" }],
+    C1: [{ key: "listening_c1", level: "C1", title: "Listening for level C1", price: "8.99" }],
+    C2: [{ key: "listening_c2", level: "C2", title: "Listening for level C2", price: "9.99" }]
+  },
+
+  Vocabulary: {
+    All: [
+      { key: "vocab_300", level: "+300", title: "Vocabulary +300 words", price: "3.99" },
+      { key: "vocab_500", level: "+500", title: "Vocabulary +500 words", price: "4.99" },
+      { key: "vocab_700", level: "+700", title: "Vocabulary +700 words", price: "5.99" },
+      { key: "vocab_1000", level: "+1000", title: "Vocabulary +1000 words", price: "6.99" },
+      { key: "vocab_1500", level: "+1500", title: "Vocabulary +1500 words", price: "7.99" },
+      { key: "vocab_2000", level: "+2000", title: "Vocabulary +2000 words", price: "8.99" }
+    ],
+    "+300": [{ key: "vocab_300", level: "+300", title: "Vocabulary +300 words", price: "3.99" }],
+    "+500": [{ key: "vocab_500", level: "+500", title: "Vocabulary +500 words", price: "4.99" }],
+    "+700": [{ key: "vocab_700", level: "+700", title: "Vocabulary +700 words", price: "5.99" }],
+    "+1000": [{ key: "vocab_1000", level: "+1000", title: "Vocabulary +1000 words", price: "6.99" }],
+    "+1500": [{ key: "vocab_1500", level: "+1500", title: "Vocabulary +1500 words", price: "7.99" }],
+    "+2000": [{ key: "vocab_2000", level: "+2000", title: "Vocabulary +2000 words", price: "8.99" }]
+  }
+};
+
+function renderCourses(){
+  const lang = getLang();
+
+  // 1) نفس جزء الـ featured القديم (ما غيرناه)
+
+  // 🔹 إعادة بناء قسم Featured courses
+const featuredContainer = document.getElementById("featured");
+if (featuredContainer) {
+  featuredContainer.innerHTML = COURSES.filter(c => c.featured).map(c => `
+    <article class="card" style="background:var(--card);color:var(--foreground)">
+      <div class="flex items-center gap-2">
+        <span class="lvl-pill lvl-pill-sm">${c.level}</span>
+        <span class="muted text-sm">${c.category[lang]}</span>
+      </div>
+      <h3 class="text-lg font-semibold mt-3">${c.title[lang]}</h3>
+      <p class="muted text-sm mt-2">${c.description[lang]}</p>
+      <div class="mt-4 flex items-center gap-4 muted text-xs">
+        <span>⏱ ${c.duration[lang]}</span>
+        <span>📖 ${formatNumber(c.lessons)} ${t("courses.lessons")}</span>
+      </div>
+      <div class="mt-5 flex items-center justify-between" style="border-top:1px solid var(--border);padding-top:1rem">
+        <span class="font-bold">
+  ${
+    c.price[lang] === "Free" || c.price[lang] === "مجاني"
+      ? (lang === "ar" ? "مجاني" : "Free")
+      : `${formatNumber(c.price[lang])} ⃁`
+  }
+</span>
+        <a href="#" class="cta text-sm font-semibold">${t("courses.enroll")} →</a>
+      </div>
+    </article>
+  `).join('');
+}
+  
+  const LEVELS = {
+  Foundation: ["All", "Free"],
+  Grammar: ["All","A1","A2","B1","B2","C1","C2"],
+  Reading: ["All","A1","A2","B1","B2","C1","C2"],
+  Writing: ["All","A1","A2","B1","B2","C1","C2"],
+  Listening: ["All","A1","A2","B1","B2","C1","C2"],
+  Vocabulary: ["All","+300","+500","+700","+1000","+1500","+2000"]
+};
+  const SKILLS = ["Foundation", "Grammar","Reading","Writing","Listening","Vocabulary"];
+
+  // 2) نبني الفلاتر لكل مهارة (أيقونات فقط)
+  SKILLS.forEach(skill => {
+    document.getElementById(`${skill.toLowerCase()}-filters`).innerHTML =
+  LEVELS[skill].map(level => {
+
+  let label = level;
+
+  if(level === "All"){
+    label = t("filter.all");
+  }
+  else if(level === "Free"){
+    label = t("filter.free");
+  }
+  else if(level.startsWith("+")){
+  const num = level.replace("+","");
+
+  label = getLang() === "ar"
+    ? "+" + num.replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d])
+    : level;
+}
+
+  return `
+    <button class="filter-btn"
+      onclick="setActiveFilter(this, '${skill}', '${level}')">
+      ${label}
+    </button>
+  `;
+}).join('');
+
+    // أول ما تفتح الصفحة: نعرض All لكل مهارة
+    renderSkill(skill, "All");
+  });
+}
+
+function setActiveFilter(btn, skill, level){
+  // إزالة التفعيل من كل الأزرار داخل نفس المهارة
+  document.querySelectorAll(`#${skill.toLowerCase()}-filters .filter-btn`)
+    .forEach(b => b.classList.remove('active-filter'));
+
+  // تفعيل الزر الحالي
+  btn.classList.add('active-filter');
+
+  // عرض الكورسات
+  renderSkill(skill, level);
+}
+
+function formatNumber(num){
+  const lang = getLang();
+
+  // تحويل النص إلى رقم لو أمكن
+  const n = Number(num);
+
+  // لو ما قدر يتحول (مثل Free) نرجعه كما هو
+  if (isNaN(n)) return num;
+
+  return lang === "ar"
+    ? n.toLocaleString("ar-EG")
+    : n.toLocaleString("en-US");
+}
+
+function renderSkill(skill, level){
+  const courses = SKILL_COURSES[skill][level];
+
+  const courseCards = courses.map((c, index) => `
+    <article class="card ${index >= 3 ? 'second-row' : ''}" style="display:flex;flex-direction:column">
+
+      <div class="flex items-center gap-2">
+        <span class="lvl-pill lvl-pill-sm">
+          ${
+  c.level === "Free"
+    ? (getLang() === "ar" ? "مجاني" : "Free")
+    : c.level.startsWith("+")
+      ? "+" + formatNumber(c.level.replace("+",""))
+      : c.level
+}
+        </span>
+      </div>
+
+      <h3 class="text-lg font-semibold mt-3">
+  ${t(`skill.${c.key}.title`) !== `skill.${c.key}.title`
+      ? t(`skill.${c.key}.title`)
+      : c.title}
+</h3>
+
+      <p class="muted text-sm mt-2">
+  ${t(`skill.${c.key}.desc`) !== `skill.${c.key}.desc`
+      ? t(`skill.${c.key}.desc`)
+      : "Course description here…"}
+</p>
+
+      <div class="mt-4 flex items-center gap-4 muted text-xs">
+        <span>
+⏱ ${
+  t(`skill.${c.key}.duration`) !== `skill.${c.key}.duration`
+    ? t(`skill.${c.key}.duration`)
+    : "2 hours"
+}
+</span>
+        <span>
+📖 ${
+  t(`skill.${c.key}.lessons`) !== `skill.${c.key}.lessons`
+    ? t(`skill.${c.key}.lessons`)
+    : "10 lessons"
+}
+</span>
+      </div>
+
+      <div class="mt-5 flex items-center justify-between" style="border-top:1px solid var(--border);padding-top:1rem">
+        <span class="font-bold">
+  ${
+  c.price === "Free"
+    ? (getLang() === "ar" ? "مجاني" : "Free")
+    : `${formatNumber(c.price)} ⃁`
+}
+</span>
+        <a href="#" class="text-primary text-sm font-semibold">
+  ${t("courses.details")} →
+</a>
+      </div>
+
+    </article>
+  `).join('');
+
+  document.getElementById(`${skill.toLowerCase()}-grid`).innerHTML = courseCards;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".view-toggle").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const skill = btn.dataset.skill.toLowerCase();
+      const grid = document.getElementById(`${skill}-grid`);
+      const arrow = btn.querySelector(".arrow");
+      const label = btn.querySelector(".label");
+
+      if (grid.classList.contains("expanded")) {
+        grid.classList.remove("expanded");
+        label.textContent = getLang() === "ar" ? "عرض المزيد" : "View more";
+        arrow.textContent = "↓";
+      } else {
+        grid.classList.add("expanded");
+        label.textContent = getLang() === "ar" ? "عرض أقل" : "View less";
+        arrow.textContent = "↑";
+      }
+      
+    });
+  });
+});
+
+</script>
+
+<footer class="footer"><div class="footer-inner">
+  <div class="logo"><img src="../images/logo.png" alt="Logo" style="height:40px"></div>
+  <div class="stores" style="margin-top:0">
+  <a href="https://apps.apple.com/sa/app/english-إتقان/id6759668469" target="_blank" rel="noopener">
+  <img src="../images/appleIcon.png" alt="Download on the App Store" style="height:50px">
+</a>
+  <div class="store store-disabled" aria-disabled="true">
+    <span style="font-size:1.5rem">▶</span>
+    <span class="store-lines"><span class="store-top" data-i18n="store.google.top"></span><span class="store-bot" data-i18n="store.google.soon"></span></span>
+  </div>
+</div>
+
+<div class="box">
+    <h3 style="font-size: 1.2rem; margin:0; padding:0; margin-left:5px;" data-i18n="footer.contact">
+    Contact Us
+</h3>
+
+    <div style="display:flex; align-items:center; gap:10px; margin:0.5rem 0;">
+        <a href="https://wa.me/966508538283" target="_blank">
+            <img src="../images/WhatsAppIcon.png" style="width:31px; height:31px;">
+        </a>
+
+        <a href="https://www.tiktok.com/@itqanenglish" target="_blank">
+            <img src="../images/TikTokIcon.png" style="width:30px; height:30px;">
+        </a>
+
+        <a href="https://t.me/Itqanenglish_sa" target="_blank">
+            <img src="../images/TelegramIcon.png" style="width:30px; height:30px;">
+        </a>
+    </div>
+</div>
+
+  <p>© <span id="year"></span> Itqan English. <span data-i18n="footer.rights"></span></p>
+</div></footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    renderCourses();
+  });
+</script>
+
+<script src="app.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    applyLang();
+  });
+</script>
+
+</body></html>
