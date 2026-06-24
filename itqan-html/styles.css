@@ -531,3 +531,67 @@ html, body {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* ================================
+   إصلاح اللابتوب النهائي
+   ================================ */
+@media (min-width: 1024px) {
+
+  /* رجوع الحاويات */
+  .container,
+  .container-narrow,
+  .container-tight {
+    max-width: 72rem !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    overflow: visible !important;
+  }
+
+  /* رجوع الهيرو */
+  .hero-grid {
+    grid-template-columns: 1fr 1fr !important;
+    padding: 6rem 1.5rem !important;
+  }
+
+  /* رجوع الشبكات */
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* رجوع skill-grid */
+  .skill-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+    max-height: none !important;
+  }
+
+  /* رجوع الكروت */
+  .card,
+  .card-lg {
+    width: auto !important;
+    max-width: 100% !important;
+  }
+
+  /* رجوع الهيدر */
+  .header-inner {
+    flex-wrap: nowrap !important;
+  }
+
+  .nav {
+    flex-wrap: nowrap !important;
+    justify-content: flex-end !important;
+  }
+
+  /* إلغاء max-width للجوال */
+  * {
+    max-width: none !important;
+  }
+
+  /* إلغاء overflow hidden للجوال */
+  html, body {
+    overflow-x: visible !important;
+  }
+}
