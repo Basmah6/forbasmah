@@ -439,3 +439,95 @@ html, body {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* منع الاهتزاز نهائياً */
+html, body {
+  overflow-x: hidden !important;
+}
+
+/* إصلاح تمدد العناصر */
+* {
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* إصلاح الحاويات */
+.container,
+.container-narrow,
+.container-tight {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+/* إصلاح الهيرو */
+.hero-grid {
+  grid-template-columns: 1fr !important;
+  padding: 2rem 1rem !important;
+}
+
+/* إصلاح الكروت */
+.card,
+.card-lg {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* إصلاح الشبكات */
+.grid-3,
+.grid-2 {
+  grid-template-columns: 1fr !important;
+}
+
+/* إصلاح skill-grid */
+.skill-grid {
+  grid-template-columns: 1fr !important;
+}
+
+@media (max-width: 480px) {
+  .h1 {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+
+  h2, .text-xl {
+    font-size: 1.25rem !important;
+  }
+
+  .lead {
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-inner {
+    flex-wrap: wrap;
+    gap: .75rem;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .skill-title {
+    font-size: 1.5rem !important;
+  }
+
+  .skill-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr !important;
+  }
+}
