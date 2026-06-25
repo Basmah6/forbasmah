@@ -365,3 +365,79 @@ html[dir="rtl"] .nav-btns > button {
 html[lang="ar"] .results-buttons {
   flex-direction: row-reverse;
 }
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 80;
+}
+.modal-backdrop.active,
+.modal-backdrop:not(.hidden) {
+  display: flex;
+}
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.modal-panel {
+  position: relative;
+  width: min(100%, 42rem);
+  max-height: 90vh;
+  background: var(--card);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+.modal-body {
+  padding: 2rem;
+  overflow: auto;
+  max-height: calc(90vh - 2rem);
+}
+.modal-body h2,
+.modal-body h3 {
+  margin: 0 0 1rem;
+}
+.modal-body p {
+  margin: 0 0 1rem;
+  line-height: 1.8;
+}
+.modal-list {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.modal-close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--foreground);
+  border-radius: 9999px;
+}
+.modal-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: 9999px;
+}
+html[lang="ar"] .modal-body {
+  direction: rtl;
+  text-align: right;
+}
