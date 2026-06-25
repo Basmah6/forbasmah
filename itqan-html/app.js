@@ -10,7 +10,7 @@ const DICT = {
     "home.badge":"Official CEFR-aligned assessment",
     "home.title.1":"Measure your English level with",
     "home.title.2":"precision and seriousness.",
-    "home.subtitle":"The Itqan English Placement Test evaluates your real proficiency across grammar, vocabulary and reading — and places you on the international CEFR scale from A1 to C2.",
+    "home.subtitle":"The Itqan English Placement Test evaluates your real proficiency across grammar, vocabulary and reading — and places you on the international CEFR scale from A1 to B2.",
     "home.cta.start":"Start the test",
     "home.cta.meta":"~20 minutes · 20 questions",
     "home.demo.qcount":"Question 1 of 20",
@@ -121,7 +121,7 @@ const DICT = {
     "home.badge":"تقييم رسمي وفق إطار CEFR",
     "home.title.1":"قِس مستواك في اللغة الإنجليزية",
     "home.title.2":"بدقّة وجدية.",
-    "home.subtitle":"اختبار تحديد المستوى من إتقان إنجلش يقيس مستواك الحقيقي في القواعد والمفردات والقراءة، ويضعك على المقياس الدولي CEFR من A1 إلى C2.",
+    "home.subtitle":"اختبار تحديد المستوى من إتقان إنجلش يقيس مستواك الحقيقي في القواعد والمفردات والقراءة، ويضعك على المقياس الدولي CEFR من A1 إلى B2.",
     "home.cta.start":"ابدأ الاختبار",
     "home.cta.meta": "حوالي ٢٠ دقيقة · ٢٠ سؤالًا",
     "home.demo.qcount":"السؤال ١ من ٢٠",
@@ -737,33 +737,58 @@ function applyLang(){
   }
 }
 
+function getPercentage(correct, total){
+  return total ? (correct / total) * 100 : 0;
+}
+
+function getSkillLevel(answers, section){
+  const stats = {
+    A1:{correct:0,total:0},
+    A2:{correct:0,total:0},
+    B1:{correct:0,total:0},
+    B2:{correct:0,total:0}
+  };
+
+  for(const q of QUESTIONS){
+    if(q.section !== section) continue;
+    stats[q.level].total++;
+    if(answers[q.id] === q.answer) stats[q.level].correct++;
+  }
+
+  const pct = lvl => getPercentage(stats[lvl].correct, stats[lvl].total);
+  if(pct('B2') >= 70 && pct('B1') >= 70 && pct('A2') >= 70 && pct('A1') >= 70) return 'B2';
+  if(pct('B1') >= 70 && pct('A2') >= 70 && pct('A1') >= 70) return 'B1';
+  if(pct('A2') >= 70 && pct('A1') >= 70) return 'A2';
+  return 'A1';
+}
+
 function calculateLevel(answers){
   const perLevel = {A1:{correct:0,total:0},A2:{correct:0,total:0},B1:{correct:0,total:0},B2:{correct:0,total:0},C1:{correct:0,total:0},C2:{correct:0,total:0}};
   const perSection = {
-  Grammar:{correct:0,total:0},
-  Vocabulary:{correct:0,total:0},
-  Reading:{correct:0,total:0},
-  Listening:{correct:0,total:0},
-  levels:{Grammar:[],Vocabulary:[],Reading:[],Listening:[]}
-};
+    Grammar:{correct:0,total:0},
+    Vocabulary:{correct:0,total:0},
+    Reading:{correct:0,total:0},
+    Listening:{correct:0,total:0},
+    levels:{Grammar:[],Vocabulary:[],Reading:[],Listening:[]}
+  };
 
   let score=0, weighted=0, weightTotal=0;
   for(const q of QUESTIONS){
-  perLevel[q.level].total++;
-  perSection[q.section].total++;
-  weightTotal += LEVEL_WEIGHT[q.level];
+    perLevel[q.level].total++;
+    perSection[q.section].total++;
+    weightTotal += LEVEL_WEIGHT[q.level];
 
-  if(answers[q.id] === q.answer){
-    score++;
-    perLevel[q.level].correct++;
-    perSection[q.section].correct++;
+    if(answers[q.id] === q.answer){
+      score++;
+      perLevel[q.level].correct++;
+      perSection[q.section].correct++;
 
-    weighted += LEVEL_WEIGHT[q.level];
+      weighted += LEVEL_WEIGHT[q.level];
 
-    // نخزن مستوى السؤال الصحيح لكل سكشن
-    perSection.levels[q.section].push(q.level);
+      // نخزن مستوى السؤال الصحيح لكل سكشن
+      perSection.levels[q.section].push(q.level);
+    }
   }
-}
 
   const ratio = weighted/weightTotal;
   let level = "A1";
@@ -774,22 +799,12 @@ function calculateLevel(answers){
   }
   if(ratio >= 0.95) level = "C2";
 
-const perSectionLevel = {};
-
-for(const s of Object.keys(perSection)){
-  if(s === "levels") continue;
-
-  const arr = perSection.levels[s];
-  if(!arr.length){
-    perSectionLevel[s] = "A1";
-    continue;
-  }
-
-  // نأخذ أعلى مستوى تم تحقيقه في هذا السكشن
-  perSectionLevel[s] = arr.sort(
-    (a,b)=>LEVEL_WEIGHT[b]-LEVEL_WEIGHT[a]
-  )[0];
-}
+  const perSectionLevel = {
+    Listening: getSkillLevel(answers, 'Listening'),
+    Grammar: getSkillLevel(answers, 'Grammar'),
+    Vocabulary: getSkillLevel(answers, 'Vocabulary'),
+    Reading: getSkillLevel(answers, 'Reading')
+  };
 
   return { level, score, total: QUESTIONS.length, perLevel, perSection, perSectionLevel };
 }
