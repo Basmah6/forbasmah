@@ -57,7 +57,7 @@ function render(){
     const p = v.total ? Math.round((v.correct/v.total)*100) : 0;
     return `<div class="card"><p class="text-sm muted font-medium">${t('section.'+k)}</p><p class="text-2xl font-bold mt-2">${data.perSectionLevel[k]}</p><p class="text-xs muted mt-2">${t('results.correctOf',{c:v.correct,t:v.total})}</p><div class="bar-track mt-3"><div class="bar-fill" style="width:${p}%;background:var(--gradient-hero)"></div></div></div>`;
   }).join('');
-  const levelsHtml = LEVELS_ORDER.map(lvl=>{
+  const levelsHtml = ['A1','A2','B1','B2'].map(lvl=>{
     const v = data.perLevel[lvl]; const p = v.total ? Math.round((v.correct/v.total)*100) : 0;
     const cur = lvl === data.level;
     return `<div class="flex items-center gap-4"><div style="width:2.5rem;flex-shrink:0;font-weight:700;font-size:.875rem;color:${cur?'var(--primary)':'var(--muted-foreground)'}">${lvl}</div><div style="flex:1"><div class="bar-track"><div class="bar-fill" style="width:${p}%;background:${cur?'var(--gradient-hero)':'var(--primary-soft)'}"></div></div></div><div class="muted text-sm" style="width:5rem;text-align:end;font-variant-numeric:tabular-nums">${v.correct}/${v.total}</div></div>`;
