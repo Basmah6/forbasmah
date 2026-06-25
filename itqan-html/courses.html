@@ -126,8 +126,8 @@ if (featuredContainer) {
         <span class="font-bold">
   ${
     c.price[lang] === "Free" || c.price[lang] === "مجاني"
-      ? (lang === "ar" ? `<span class="currency-symbol">⃁</span> ٥٩` : `<span class="currency-symbol">⃁</span> 59`)
-      : `<span class="currency-symbol">⃁</span> ${formatNumber(c.price[lang])}`
+      ? (lang === "ar" ? `<img src="../images/SARIcon.png" alt="SAR" class="currency-icon"> ٥٩` : `<img src="../images/SARIcon.png" alt="SAR" class="currency-icon"> 59`)
+      : `<img src="../images/SARIcon.png" alt="SAR" class="currency-icon"> ${formatNumber(c.price[lang])}`
   }
 </span>
         <a href="#" class="cta text-sm font-semibold">${t("courses.enroll")} →</a>
@@ -246,7 +246,7 @@ function renderSkill(skill, level){
   ${
   c.price === "Free"
     ? (getLang() === "ar" ? "مجاني" : "Free")
-        : `<span class="currency-symbol">⃁</span> ${formatNumber(c.price)}`
+        : `<img src="../images/SARIcon.png" alt="SAR" class="currency-icon"> ${formatNumber(c.price)}`
 }
 </span>
              <a href="#" class="text-primary text-sm font-semibold course-details-trigger" data-course-key="${c.key}">
