@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Noto+Kufi+Arabic:wght@400;500;600;700;800&display=swap"/>
 <link rel="stylesheet" href="styles.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&display=swap" rel="stylesheet"/>
 </head><body>
 
 <header class="header">
@@ -77,30 +78,12 @@
   <div class="modal-overlay" id="foundation-modal-overlay"></div>
   <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="foundation-modal-title">
     <div class="modal-body">
-      <h2 id="foundation-modal-title">أولاً: عن الدورة (في سطور)</h2>
-      <p>انطلق في رحلة التحدث بالإنجليزية بثقة.. من الصفر وحتى التأسيس المتين!
-      التجربة التعليمية الأكثر تفاعلية على الإطلاق لتأسيس لغتك الإنجليزية (Level A1). هنا</p>
-
-      <h3>ثانيًا: محتوى الدورة (ماذا ستتعلم؟)</h3>
-      <div class="modal-list">
-        <p>الوحدة 1 | الحروف والأصوات: نطق الحروف، التمييز بين أصواتها، والحروف الصامتة والمركبة.</p>
-        <p>الوحدة 2 | فعل الكينونة (Verb to Be): وصف الأشخاص والأشياء، وصياغة الإثبات والنفي والسؤال.</p>
-        <p>الوحدة 3 | أقسام الكلام: معرفة الأسماء، الأفعال، الصفات، وحروف الجر وكيف تعمل معاً.</p>
-        <p>الوحدة 4 | بناء الجملة والأدوات: تركيب جملة صحيحة (فاعل + فعل + مفعول) واستخدام (A, An, The).</p>
-        <p>الوحدة 5 | المضارع البسيط: التعبير عن روتينك اليومي، وعاداتك، وصياغة الأسئلة باستخدام (Do/Does).</p>
-        <p>الوحدة 6 | مفردات ومحادثات: التحيات، الأرقام، أفراد العائلة، والتدرب على محادثات واقعية للتعريف بالنفس.</p>
-      </div>
-
-      <h3>ثالثًا: الميزات التفاعلية (سر تميّز الدورة)</h3>
-      <div class="modal-list">
-        <p>نظام صوتي تفاعلي: كل كلمة وجملة مدعومة بأزرار صوتية فورية.</p>
-        <p>تمارين تطبيقية مستمرة: سحب وإفلات، إعادة ترتيب، واختيارات.</p>
-        <p>اختبار نهائي شامل: يقيس مدى استيعابك ويؤكد جاهزيتك للمستوى التالي.</p>
-      </div>
+      <!-- foundation content is rendered dynamically based on language -->
+    </div>
 
       <div class="modal-actions">
         <button type="button" class="btn-secondary modal-close-btn">إغلاق</button>
-        <button type="button" class="cta modal-primary-btn">سجّل الآن →</button>
+        <button type="button" class="cta modal-primary-btn">سجّل الآن</button>
       </div>
     </div>
   </div>
@@ -143,10 +126,8 @@ if (featuredContainer) {
         <span class="font-bold">
   ${
     c.price[lang] === "Free" || c.price[lang] === "مجاني"
-      ? (lang === "ar" ? "٥٩ ريال" : "59 SAR")
-      : (lang === "ar"
-          ? `${formatNumber(c.price[lang])} ريال`
-          : `${formatNumber(c.price[lang])} SAR`)
+      ? (lang === "ar" ? `<span class="currency-symbol">⃁</span> ٥٩` : `<span class="currency-symbol">⃁</span> 59`)
+      : `<span class="currency-symbol">⃁</span> ${formatNumber(c.price[lang])}`
   }
 </span>
         <a href="#" class="cta text-sm font-semibold">${t("courses.enroll")} →</a>
@@ -230,7 +211,7 @@ function renderSkill(skill, level){
         <span class="lvl-pill lvl-pill-sm">
           ${
   c.level === "Free"
-    ? (getLang() === "ar" ? "٥٩ ريال" : "59 SAR")
+    ? (getLang() === "ar" ? "مجاني" : "Free")
     : c.level.startsWith("+")
       ? "+" + formatNumber(c.level.replace("+",""))
       : c.level
@@ -265,9 +246,7 @@ function renderSkill(skill, level){
   ${
   c.price === "Free"
     ? (getLang() === "ar" ? "مجاني" : "Free")
-    : (getLang() === "ar"
-        ? `${formatNumber(c.price)} ريال`
-        : `${formatNumber(c.price)} SAR`)
+        : `<span class="currency-symbol">⃁</span> ${formatNumber(c.price)}`
 }
 </span>
              <a href="#" class="text-primary text-sm font-semibold course-details-trigger" data-course-key="${c.key}">
@@ -281,10 +260,77 @@ function renderSkill(skill, level){
   document.getElementById(`${skill.toLowerCase()}-grid`).innerHTML = courseCards;
 }
 
+function getFoundationModalContent(lang){
+  if(lang === 'ar'){
+    return `
+      <h2 id="foundation-modal-title">أولاً: عن الدورة (في سطور)</h2>
+      <p>انطلق في رحلة التحدث بالإنجليزية بثقة.. من الصفر وحتى التأسيس المتين!
+      التجربة التعليمية الأكثر تفاعلية على الإطلاق لتأسيس لغتك الإنجليزية (Level A1). هنا</p>
+
+      <h3>ثانيًا: محتوى الدورة (ماذا ستتعلم؟)</h3>
+      <div class="modal-list">
+        <p>الوحدة 1 | الحروف والأصوات: نطق الحروف، التمييز بين أصواتها، والحروف الصامتة والمركبة.</p>
+        <p>الوحدة 2 | فعل الكينونة (Verb to Be): وصف الأشخاص والأشياء، وصياغة الإثبات والنفي والسؤال.</p>
+        <p>الوحدة 3 | أقسام الكلام: معرفة الأسماء، الأفعال، الصفات، وحروف الجر وكيف تعمل معاً.</p>
+        <p>الوحدة 4 | بناء الجملة والأدوات: تركيب جملة صحيحة (فاعل + فعل + مفعول) واستخدام (A, An, The).</p>
+        <p>الوحدة 5 | المضارع البسيط: التعبير عن روتينك اليومي، وعاداتك، وصياغة الأسئلة باستخدام (Do/Does).</p>
+        <p>الوحدة 6 | مفردات ومحادثات: التحيات، الأرقام، أفراد العائلة، والتدرب على محادثات واقعية للتعريف بالنفس.</p>
+      </div>
+
+      <h3>ثالثًا: الميزات التفاعلية (سر تميّز الدورة)</h3>
+      <div class="modal-list">
+        <p>نظام صوتي تفاعلي: لا تخمن النطق بعد اليوم! كل كلمة وجملة مدعومة بأزرار صوتية فورية لتسمع النطق الصحيح وتكرره.</p>
+        <p>تمارين تطبيقية مستمرة: بعد كل قاعدة ومفردة، ستجد تمارين تفاعلية فورية (سحب وإفلات، إعادة ترتيب، واختيارات) لتتأكد من فهمك في نفس اللحظة.</p>
+        <p>اختبار نهائي شامل: في نهاية الدورة، ستخوض اختباراً ذكياً يقيس بدقة مدى استيعابك لكل ما درست ويؤكد جاهزيتك للانتقال للمستوى التالي.</p>
+        <p>شهادة إتمام: بمجرد اجتيازك للاختبار النهائي، ستحصل فوراً على شهادة إثبات كفاءة تتوج بها جهودك وتدعم بها ملفك الشخصي.</p>
+      </div>
+    `;
+  }
+
+  return `
+      <h2 id="foundation-modal-title">First: About the course (in brief)</h2>
+      <p>Start your journey to speaking English with confidence... from zero to a strong and solid foundation! The most interactive learning experience ever to build your English language foundation (Level A1). Here</p>
+
+      <h3>Second: Course content (what will you learn?)</h3>
+      <div class="modal-list">
+        <p>Unit 1 | Letters and sounds: letter pronunciation, distinguishing their sounds, and consonant and digraph letters.</p>
+        <p>Unit 2 | The verb to be: describing people and things, forming affirmatives, negatives, and questions.</p>
+        <p>Unit 3 | Parts of speech: learning nouns, verbs, adjectives, and prepositions and how they work together.</p>
+        <p>Unit 4 | Sentence building and articles: constructing a correct sentence (subject + verb + object) and using (A, An, The).</p>
+        <p>Unit 5 | Simple present: talking about your daily routine, habits, and forming questions with (Do/Does).</p>
+        <p>Unit 6 | Vocabulary and conversations: greetings, numbers, family members, and practicing real conversations for introducing yourself.</p>
+      </div>
+
+      <h3>Third: Interactive features (the course’s secret advantage)</h3>
+      <div class="modal-list">
+        <p>Interactive voice system: don’t guess pronunciation anymore! Every word and sentence is supported by instant audio buttons so you can hear the correct pronunciation and repeat it.</p>
+        <p>Continuing practice exercises: after every rule and vocabulary item, you’ll find instant interactive exercises (drag and drop, reorder, and multiple-choice) to check your understanding right away.</p>
+        <p>Comprehensive final test: at the end of the course, you’ll take a smart test that accurately measures what you’ve learned and confirms you’re ready for the next level.</p>
+        <p>Completion certificate: once you pass the final test, you’ll immediately receive a certificate proving your competency and supporting your profile.</p>
+      </div>
+    `;
+}
+
+function renderFoundationModal(){
+  const lang = getLang();
+  const modalBody = document.querySelector('#foundation-modal .modal-body');
+  const actions = document.querySelector('#foundation-modal .modal-actions');
+  if(modalBody){
+    modalBody.innerHTML = getFoundationModalContent(lang);
+  }
+  if(actions){
+    actions.innerHTML = `
+      <button type="button" class="btn-secondary modal-close-btn">${lang === 'ar' ? 'إغلاق' : 'Close'}</button>
+      <button type="button" class="cta modal-primary-btn">${lang === 'ar' ? 'سجّل الآن' : 'Register Now'}</button>
+    `;
+  }
+}
+
 function openFoundationModal(event){
   if(event) event.preventDefault();
   const modal = document.getElementById('foundation-modal');
   if(!modal) return;
+  renderFoundationModal();
   modal.classList.remove('hidden');
   modal.setAttribute('aria-hidden','false');
   document.body.style.overflow = 'hidden';
