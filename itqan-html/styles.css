@@ -460,8 +460,10 @@ html[lang="ar"] .modal-body {
   text-align: right;
 }
 
-.currency-symbol {
-  font-family: 'Noto Sans Symbols 2', sans-serif;
-  font-size: inherit;
-  line-height: inherit;
+.currency-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  object-fit: contain;
+  margin-inline-end: 0.25em;
 }
