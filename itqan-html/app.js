@@ -107,7 +107,7 @@ const DICT = {
 
 "results.viewCourses": "View Courses →",
 "filter.all": "All",
-"filter.free": "<span class=\"currency-symbol\">⃁</span> 59",
+"filter.free": "<img src=\"../images/SARIcon.png\" alt=\"SAR\" class=\"currency-icon\"> 59",
 "home.ready.cta": "View Courses"
   },
 
@@ -401,7 +401,7 @@ const DICT = {
 "skill.foundation.lessons": "١٠ دروس",
 "results.viewCourses": "عرض الدورات ←",
 "filter.all": "الكل",
-"filter.free": "<span class=\"currency-symbol\">⃁</span> ٥٩",
+"filter.free": "<img src=\"../images/SARIcon.png\" alt=\"SAR\" class=\"currency-icon\"> ٥٩",
 "home.ready.cta": "عرض الدورات"
   }
 };
