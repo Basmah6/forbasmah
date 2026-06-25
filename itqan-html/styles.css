@@ -467,3 +467,12 @@ html[lang="ar"] .modal-body {
   object-fit: contain;
   margin-inline-end: 0.25em;
 }
+
+.currency-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  display: inline-block; /* ← هذا هو المفتاح */
+  object-fit: contain;
+  margin-inline-end: 0.25em;
+}
