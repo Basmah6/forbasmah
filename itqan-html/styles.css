@@ -65,6 +65,11 @@ ul{list-style:none}
 .hero-blob{position:absolute;top:-8rem;inset-inline-end:-8rem;width:24rem;height:24rem;border-radius:9999px;opacity:.3;filter:blur(60px);background:var(--gradient-hero);z-index:-1}
 .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;padding:6rem 1.5rem;max-width:72rem;margin:0 auto}
 .h1{font-size:3rem;line-height:1.05;font-weight:700}
+ html[lang="ar"] .h1 {
+  line-height: 1.5;
+}
+.heading-single-line{white-space:nowrap;font-size:clamp(1rem,2.5vw,3.75rem)}
+html[lang="ar"] .heading-single-line{line-height:1.3;overflow:visible;clip-path:none;}
 @media(min-width:768px){.h1{font-size:3.75rem}}
 .h1-grad{display:block;background:var(--gradient-hero);-webkit-background-clip:text;background-clip:text;color:transparent}
 .lead{margin-top:1.5rem;max-width:32rem;font-size:1.125rem;color:var(--muted-foreground);line-height:1.6}
