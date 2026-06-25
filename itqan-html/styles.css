@@ -162,11 +162,6 @@ html[dir="rtl"] .q-context{border-left:0;border-right:4px solid var(--primary)}
   align-items: center;
 }
 
-.skill-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
-  gap: 1.5rem;
-}
 
 .filter-btn {
   background: #fff;
@@ -211,69 +206,6 @@ html[dir="rtl"] .q-context{border-left:0;border-right:4px solid var(--primary)}
     padding: 1rem 0;
 }
 
-.second-row {
-  display: none;
-}
-
-.skill-grid.expanded .second-row {
-  display: flex;
-}
-
-.view-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: .4rem;
-  font-weight: 600;
-  color: var(--primary);
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin-top: 1rem;
-  font-size: .9rem;
-  transition: color .2s;
-}
-
-.view-toggle:hover {
-  color: color-mix(in oklch, var(--primary) 60%, black);
-}
-
-.view-toggle .arrow {
-  font-size: 1rem;
-  transition: transform .3s;
-}
-
-/* English layout */
-html[lang="en"] .skill-grid {
-  max-height: 220px; /* الارتفاع المناسب للإنجليزي */
-  overflow: hidden;
-  transition: max-height .4s ease;
-}
-
-/* Arabic layout */
-html[lang="ar"] .skill-grid {
-  max-height: 260px; /* ارفعيه شوي لأن العربي أطول */
-  overflow: hidden;
-  transition: max-height .4s ease;
-}
-
-/* السطر الثاني مخفي فعليًا داخل الحجم */
-.second-row {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-10px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.skill-grid.expanded {
-  max-height: 5000px !important;
-}
-
-.skill-grid.expanded .second-row {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
 /* السؤال فقط */
 html[dir="rtl"] .card h2{
     direction:ltr !important;
@@ -299,23 +231,10 @@ html[dir="rtl"] .hero .opt{
     text-align:left !important;
 }
 
-.audio-btn {
-  display: block;
-  margin: 0 auto 10px auto; /* وسط + مسافة تحت */
-}
-
 /* إعادة النص لوضعه الطبيعي بدون التأثير على مسافاته */
 .q-prompt-text {
   line-height: 1.4; 
   margin-top: 0;
-}
-
-/* التحكم في السماعة وحدها (مكانها والهوامش الخاصة بها) */
-.audio-btn {
-  background: transparent;
-  border: none;
-  padding: 0;
-  margin: -30px 0 -30px 0;
 }
 
 /* الأسئلة */
@@ -348,250 +267,101 @@ html[dir="rtl"] .hero .opt{
   font-size:16px;
 }
 
-/* منع الاهتزاز نهائياً */
-html, body {
-  overflow-x: hidden !important;
-}
-
-/* إصلاح تمدد العناصر */
-* {
-  max-width: 100% !important;
-  box-sizing: border-box;
-}
-
-/* إصلاح الحاويات */
-.container,
-.container-narrow,
-.container-tight {
-  padding-left: 1rem !important;
-  padding-right: 1rem !important;
-}
-
-/* إصلاح الهيرو */
-.hero-grid {
-  grid-template-columns: 1fr !important;
-  padding: 2rem 1rem !important;
-}
-
-/* إصلاح الكروت */
-.card,
-.card-lg {
-  width: 100% !important;
-  max-width: 100% !important;
-}
-
-/* إصلاح الشبكات */
-.grid-3,
-.grid-2 {
-  grid-template-columns: 1fr !important;
-}
-
-/* إصلاح skill-grid */
-.skill-grid {
-  grid-template-columns: 1fr !important;
-}
-
+/* Responsive breakpoints */
+/* Mobile: 0 - 480px */
 @media (max-width: 480px) {
-  .h1 {
-    font-size: 2rem !important;
-    line-height: 1.2 !important;
+  .container, .container-narrow, .container-tight {
+    padding: 0 1rem;
   }
-
-  h2, .text-xl {
-    font-size: 1.25rem !important;
+  .hero-grid {
+    padding: 3rem 1rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
+  .h1 { font-size: 2rem; line-height:1.1; }
+  .hero-blob { display: none; }
+  .header-inner { padding: 0.75rem 1rem; }
+}
 
-  .lead {
-    font-size: 1rem !important;
+/* Tablet: 481px - 1023px */
+@media (min-width: 481px) and (max-width: 1023px) {
+
+  .hero-grid {
+    padding: 4rem 1.25rem;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (max-width: 480px) {
-  .header-inner {
-    flex-wrap: wrap;
-    gap: .75rem;
-  }
-
-  .nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .skill-title {
-    font-size: 1.5rem !important;
-  }
-
-  .skill-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1rem !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .stat-row {
-    grid-template-columns: 1fr !important;
-  }
-
-  .grid-3 {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-/* منع الاهتزاز نهائياً */
-html, body {
-  overflow-x: hidden !important;
-}
-
-/* إصلاح تمدد العناصر */
-* {
-  max-width: 100% !important;
-  box-sizing: border-box;
-}
-
-/* إصلاح الحاويات */
-.container,
-.container-narrow,
-.container-tight {
-  padding-left: 1rem !important;
-  padding-right: 1rem !important;
-}
-
-/* إصلاح الهيرو */
-.hero-grid {
-  grid-template-columns: 1fr !important;
-  padding: 2rem 1rem !important;
-}
-
-/* إصلاح الكروت */
-.card,
-.card-lg {
-  width: 100% !important;
-  max-width: 100% !important;
-}
-
-/* إصلاح الشبكات */
-.grid-3,
-.grid-2 {
-  grid-template-columns: 1fr !important;
-}
-
-/* إصلاح skill-grid */
-.skill-grid {
-  grid-template-columns: 1fr !important;
-}
-
-@media (max-width: 480px) {
-  .h1 {
-    font-size: 2rem !important;
-    line-height: 1.2 !important;
-  }
-
-  h2, .text-xl {
-    font-size: 1.25rem !important;
-  }
-
-  .lead {
-    font-size: 1rem !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .header-inner {
-    flex-wrap: wrap;
-    gap: .75rem;
-  }
-
-  .nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .skill-title {
-    font-size: 1.5rem !important;
-  }
-
-  .skill-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1rem !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .stat-row {
-    grid-template-columns: 1fr !important;
-  }
-
-  .grid-3 {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-/* ================================
-   إصلاح اللابتوب النهائي
-   ================================ */
+/* Desktop / Laptop: 1024px+ */
 @media (min-width: 1024px) {
 
-  /* رجوع الحاويات */
-  .container,
-  .container-narrow,
-  .container-tight {
-    max-width: 72rem !important;
-    padding-left: 1.5rem !important;
-    padding-right: 1.5rem !important;
-    overflow: visible !important;
-  }
-
-  /* رجوع الهيرو */
   .hero-grid {
-    grid-template-columns: 1fr 1fr !important;
-    padding: 6rem 1.5rem !important;
+    padding: 6rem 1.5rem;
   }
+}
 
-  /* رجوع الشبكات */
-  .grid-3 {
-    grid-template-columns: repeat(3, 1fr) !important;
-  }
+/* Responsive-safe course grid: avoids forced wide columns that cause overflow */
+.skill-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
 
-  .grid-2 {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
+/* Second-row remains hidden by default; JS toggles .expanded to reveal it */
+.second-row {
+  display: none;
+}
+.skill-grid.expanded .second-row {
+  display: flex;
+  gap: 1rem;
+}
 
-  /* رجوع skill-grid */
-  .skill-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
-    max-height: none !important;
-  }
+/* Audio button: stable margins without negative offsets */
+.audio-btn {
+  display: block;
+  margin: 0 auto 10px;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
 
-  /* رجوع الكروت */
-  .card,
-  .card-lg {
-    width: auto !important;
-    max-width: 100% !important;
-  }
+/* Center stores inside the hero specifically (fixes App Store + Coming Soon left shift on mobile) */
+.hero .stores {
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+}
 
-  /* رجوع الهيدر */
-  .header-inner {
-    flex-wrap: nowrap !important;
-  }
+/* Responsive breakpoints */
+/* Mobile (<=480px) */
+@media (max-width:480px) {
+  .container, .container-narrow, .container-tight { padding: 0 1rem; }
+  .hero-grid { padding: 3rem 1rem; grid-template-columns: 1fr; gap: 1rem; }
+  .skill-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+  .h1 { font-size: 2rem; line-height:1.1; }
+  .hero-blob { display:none; }
+  .header-inner { padding: 0.75rem 1rem; }
+}
 
-  .nav {
-    flex-wrap: nowrap !important;
-    justify-content: flex-end !important;
-  }
+/* Tablet (481px–1023px) */
+@media (min-width:481px) and (max-width:1023px) {
+  .skill-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .hero-grid { padding: 4rem 1.25rem; grid-template-columns: 1fr 1fr; }
+}
 
-  /* إلغاء max-width للجوال */
-  * {
-    max-width: none !important;
-  }
+/* Desktop (>=1024px) */
+@media (min-width:1024px) {
+  .skill-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+  .hero-grid { padding: 6rem 1.5rem; }
+}
 
-  /* إلغاء overflow hidden للجوال */
-  html, body {
-    overflow-x: visible !important;
-  }
+html[dir="rtl"] .nav-btns {
+  direction: ltr;
+}
+html[dir="rtl"] .nav-btns > button {
+  direction: rtl;
+}
+
+html[lang="ar"] .results-buttons {
+  flex-direction: row-reverse;
 }
