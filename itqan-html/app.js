@@ -103,11 +103,11 @@ const DICT = {
 "course.foundation.level": "Beginner",
 "course.foundation.duration": "6 weeks",
 "course.foundation.lessons": "24 lessons",
-"course.foundation.price": "59 SAR",
+"course.foundation.price": "59",
 
 "results.viewCourses": "View Courses →",
 "filter.all": "All",
-"filter.free": "59 SAR",
+"filter.free": "<span class=\"currency-symbol\">⃁</span> 59",
 "home.ready.cta": "View Courses"
   },
 
@@ -218,7 +218,7 @@ const DICT = {
 "course.foundation.level": "مبتدئ",
 "course.foundation.duration": "٦ أسابيع",
 "course.foundation.lessons": "٢٤ درسًا",
-"course.foundation.price": "٥٩ ريال",
+"course.foundation.price": "٥٩",
 
 "skill.vocab_300.title": "مفردات +٣٠٠ كلمة",
 "skill.vocab_300.desc": "وصف الدورة هنا…",
@@ -401,7 +401,7 @@ const DICT = {
 "skill.foundation.lessons": "١٠ دروس",
 "results.viewCourses": "عرض الدورات ←",
 "filter.all": "الكل",
-"filter.free": "٥٩ ريال",
+"filter.free": "<span class=\"currency-symbol\">⃁</span> ٥٩",
 "home.ready.cta": "عرض الدورات"
   }
 };
