@@ -73,6 +73,40 @@
   </div>
 </main>
 
+<div id="foundation-modal" class="modal-backdrop hidden" aria-hidden="true">
+  <div class="modal-overlay" id="foundation-modal-overlay"></div>
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="foundation-modal-title">
+    <div class="modal-body">
+      <h2 id="foundation-modal-title">أولاً: عن الدورة (في سطور)</h2>
+      <p>انطلق في رحلة التحدث بالإنجليزية بثقة.. من الصفر وحتى التأسيس المتين!
+      التجربة التعليمية الأكثر تفاعلية على الإطلاق لتأسيس لغتك الإنجليزية (Level A1). هنا</p>
+
+      <h3>ثانيًا: محتوى الدورة (ماذا ستتعلم؟)</h3>
+      <div class="modal-list">
+        <p>الوحدة 1 | الحروف والأصوات: نطق الحروف، التمييز بين أصواتها، والحروف الصامتة والمركبة.</p>
+        <p>الوحدة 2 | فعل الكينونة (Verb to Be): وصف الأشخاص والأشياء، وصياغة الإثبات والنفي والسؤال.</p>
+        <p>الوحدة 3 | أقسام الكلام: معرفة الأسماء، الأفعال، الصفات، وحروف الجر وكيف تعمل معاً.</p>
+        <p>الوحدة 4 | بناء الجملة والأدوات: تركيب جملة صحيحة (فاعل + فعل + مفعول) واستخدام (A, An, The).</p>
+        <p>الوحدة 5 | المضارع البسيط: التعبير عن روتينك اليومي، وعاداتك، وصياغة الأسئلة باستخدام (Do/Does).</p>
+        <p>الوحدة 6 | مفردات ومحادثات: التحيات، الأرقام، أفراد العائلة، والتدرب على محادثات واقعية للتعريف بالنفس.</p>
+      </div>
+
+      <h3>ثالثًا: الميزات التفاعلية (سر تميّز الدورة)</h3>
+      <div class="modal-list">
+        <p>نظام صوتي تفاعلي: كل كلمة وجملة مدعومة بأزرار صوتية فورية.</p>
+        <p>تمارين تطبيقية مستمرة: سحب وإفلات، إعادة ترتيب، واختيارات.</p>
+        <p>اختبار نهائي شامل: يقيس مدى استيعابك ويؤكد جاهزيتك للمستوى التالي.</p>
+        <p>شهادة إتمام معتمدة: تحصل عليها فوراً بعد اجتياز الاختبار النهائي.</p>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary modal-close-btn">إغلاق</button>
+        <button type="button" class="cta modal-primary-btn">سجّل الآن →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 
 
@@ -237,7 +271,7 @@ function renderSkill(skill, level){
         : `${formatNumber(c.price)} SAR`)
 }
 </span>
-        <a href="#" class="text-primary text-sm font-semibold">
+             <a href="#" class="text-primary text-sm font-semibold course-details-trigger" data-course-key="${c.key}">
   ${t("courses.details")} →
 </a>
       </div>
@@ -247,6 +281,41 @@ function renderSkill(skill, level){
 
   document.getElementById(`${skill.toLowerCase()}-grid`).innerHTML = courseCards;
 }
+
+function openFoundationModal(event){
+  if(event) event.preventDefault();
+  const modal = document.getElementById('foundation-modal');
+  if(!modal) return;
+  modal.classList.remove('hidden');
+  modal.setAttribute('aria-hidden','false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeFoundationModal(){
+  const modal = document.getElementById('foundation-modal');
+  if(!modal) return;
+  modal.classList.add('hidden');
+  modal.setAttribute('aria-hidden','true');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('click', function(event){
+  const trigger = event.target.closest('.course-details-trigger');
+  if(trigger){
+    event.preventDefault();
+    openFoundationModal();
+    return;
+  }
+  if(event.target.closest('.modal-close-btn') || event.target.id === 'foundation-modal-overlay'){
+    closeFoundationModal();
+  }
+});
+
+document.addEventListener('keydown', function(event){
+  if(event.key === 'Escape'){
+    closeFoundationModal();
+  }
+});
 
 
 </script>
