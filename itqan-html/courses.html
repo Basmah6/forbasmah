@@ -79,10 +79,10 @@
 const SKILL_COURSES = {
   Foundation: {
     All: [
-      { key: "foundation", level: "Free", title: "Foundation Course", price: "Free" }
+      { key: "foundation", level: "Free", title: "Foundation Course", price: 59 }
     ],
     Free: [
-      { key: "foundation", level: "Free", title: "Foundation Course", price: "Free" }
+      { key: "foundation", level: "Free", title: "Foundation Course", price: 59 }
     ]
   }
 };
@@ -104,15 +104,16 @@ if (featuredContainer) {
       <h3 class="text-lg font-semibold mt-3">${c.title[lang]}</h3>
       <p class="muted text-sm mt-2">${c.description[lang]}</p>
       <div class="mt-4 flex items-center gap-4 muted text-xs">
-        <span>⏱ ${c.duration[lang]}</span>
         <span>📖 ${formatNumber(c.lessons)} ${t("courses.lessons")}</span>
       </div>
       <div class="mt-5 flex items-center justify-between" style="border-top:1px solid var(--border);padding-top:1rem">
         <span class="font-bold">
   ${
     c.price[lang] === "Free" || c.price[lang] === "مجاني"
-      ? (lang === "ar" ? "مجاني" : "Free")
-      : `${formatNumber(c.price[lang])} ⃁`
+      ? (lang === "ar" ? "٥٩ ريال" : "59 SAR")
+      : (lang === "ar"
+          ? `${formatNumber(c.price[lang])} ريال`
+          : `${formatNumber(c.price[lang])} SAR`)
   }
 </span>
         <a href="#" class="cta text-sm font-semibold">${t("courses.enroll")} →</a>
@@ -196,7 +197,7 @@ function renderSkill(skill, level){
         <span class="lvl-pill lvl-pill-sm">
           ${
   c.level === "Free"
-    ? (getLang() === "ar" ? "مجاني" : "Free")
+    ? (getLang() === "ar" ? "٥٩ ريال" : "59 SAR")
     : c.level.startsWith("+")
       ? "+" + formatNumber(c.level.replace("+",""))
       : c.level
@@ -218,13 +219,6 @@ function renderSkill(skill, level){
 
       <div class="mt-4 flex items-center gap-4 muted text-xs">
         <span>
-⏱ ${
-  t(`skill.${c.key}.duration`) !== `skill.${c.key}.duration`
-    ? t(`skill.${c.key}.duration`)
-    : "2 hours"
-}
-</span>
-        <span>
 📖 ${
   t(`skill.${c.key}.lessons`) !== `skill.${c.key}.lessons`
     ? t(`skill.${c.key}.lessons`)
@@ -238,7 +232,9 @@ function renderSkill(skill, level){
   ${
   c.price === "Free"
     ? (getLang() === "ar" ? "مجاني" : "Free")
-    : `${formatNumber(c.price)} ⃁`
+    : (getLang() === "ar"
+        ? `${formatNumber(c.price)} ريال`
+        : `${formatNumber(c.price)} SAR`)
 }
 </span>
         <a href="#" class="text-primary text-sm font-semibold">
