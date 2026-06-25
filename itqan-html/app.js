@@ -64,10 +64,8 @@ const DICT = {
     "results.correctOf":"{c} of {t} correct",
     "results.retake":"Retake test",
     "results.home":"Back to home",
-    "section.Grammar":"Grammar",
-    "section.Vocabulary":"Vocabulary",
-    "section.Reading":"Reading",
-    "section.Listening":"Listening",
+    
+  
     "lang.toggle":"العربية",
     "store.apple.top":"Download on the",
     "store.apple.bottom":"App Store",
@@ -97,7 +95,6 @@ const DICT = {
 "section.Vocabulary": "Vocabulary",
 "section.Reading": "Reading",
 "section.Listening": "Listening",
-"section.Writing": "Writing",
 "section.Featured": "Featured Courses",
 
 "course.foundation.title": "Foundation Course",
@@ -108,45 +105,6 @@ const DICT = {
 "course.foundation.lessons": "24 lessons",
 "course.foundation.price": "Free",
 
-"course.grammar.title": "Core Grammar Mastery",
-"course.grammar.desc": "Master tenses, conditionals, modals and sentence structure with clear Arabic explanations.",
-"course.grammar.button": "Enroll now →",
-"course.grammar.level": "Grammar",
-"course.grammar.duration": "10 weeks",
-"course.grammar.lessons": "40 lessons",
-"course.grammar.price": "⃁49",
-
-"course.everyday.title": "Everyday English",
-"course.everyday.desc": "Speak confidently in daily situations — shopping, travel, work and social life.",
-"course.everyday.button": "Enroll now →",
-"course.everyday.level": "Speaking",
-"course.everyday.duration": "8 weeks",
-"course.everyday.lessons": "32 lessons",
-"course.everyday.price": "$29",
-
-"course.ielts.title": "IELTS Preparation",
-"course.ielts.desc": "Targeted practice across the four IELTS sections with model answers and band-9 strategies.",
-"course.ielts.button": "Enroll now →",
-"course.ielts.level": "Exam Prep",
-"course.ielts.duration": "12 weeks",
-"course.ielts.lessons": "48 lessons",
-"course.ielts.price": "$99",
-
-"course.business.title": "Business English",
-"course.business.desc": "Professional communication: emails, meetings, presentations and negotiations.",
-"course.business.button": "Enroll now →",
-"course.business.level": "Business",
-"course.business.duration": "8 weeks",
-"course.business.lessons": "32 lessons",
-"course.business.price": "$79",
-
-"course.academic.title": "Academic Writing",
-"course.academic.desc": "Write essays, research papers and dissertations with academic rigor and clarity.",
-"course.academic.button": "Enroll now →",
-"course.academic.level": "Writing",
-"course.academic.duration": "10 weeks",
-"course.academic.lessons": "36 lessons",
-"course.academic.price": "$89",
 "results.viewCourses": "View Courses →",
 "filter.all": "All",
 "filter.free": "Free",
@@ -262,45 +220,6 @@ const DICT = {
 "course.foundation.lessons": "٢٤ درسًا",
 "course.foundation.price": "مجاني",
 
-"course.grammar.title": "إتقان القواعد الأساسية",
-"course.grammar.desc": "أتقن الأزمنة والشرطية والأفعال الناقصة وتراكيب الجمل مع شرح عربي واضح.",
-"course.grammar.button": "سجّل الآن →",
-"course.grammar.level": "قواعد",
-"course.grammar.duration": "١٠ أسابيع",
-"course.grammar.lessons": "٤٠ درسًا",
-"course.grammar.price": "٤٩⃁",
-
-"course.everyday.title": "إنجليزية الحياة اليومية",
-"course.everyday.desc": "تحدّث بثقة في المواقف اليومية — التسوّق والسفر والعمل والحياة الاجتماعية.",
-"course.everyday.button": "سجّل الآن →",
-"course.everyday.level": "تحدُّث",
-"course.everyday.duration": "٨ أسابيع",
-"course.everyday.lessons": "٣٢ درسًا",
-"course.everyday.price": "٢٩$",
-
-"course.ielts.title": "التحضير لاختبار IELTS",
-"course.ielts.desc": "تدريب مركّز على أقسام IELTS الأربعة مع نماذج إجابات واستراتيجيات الحصول على درجة ٩.",
-"course.ielts.button": "سجّل الآن →",
-"course.ielts.level": "تحضير اختبارات",
-"course.ielts.duration": "١٢ أسبوعًا",
-"course.ielts.lessons": "٤٨ درسًا",
-"course.ielts.price": "٩٩$",
-
-"course.business.title": "الإنجليزية في الأعمال",
-"course.business.desc": "التواصل المهني: البريد الإلكتروني والاجتماعات والعروض التقديمية والتفاوض.",
-"course.business.button": "سجّل الآن →",
-"course.business.level": "أعمال",
-"course.business.duration": "٨ أسابيع",
-"course.business.lessons": "٣٢ درسًا",
-"course.business.price": "٧٩$",
-
-"course.academic.title": "الكتابة الأكاديمية",
-"course.academic.desc": "اكتب المقالات والأبحاث والرسائل الجامعية بدقة ووضوح أكاديمي.",
-"course.academic.button": "سجّل الآن →",
-"course.academic.level": "كتابة",
-"course.academic.duration": "١٠ أسابيع",
-"course.academic.lessons": "٣٦ درسًا",
-"course.academic.price": "٨٩$",
 "skill.vocab_300.title": "مفردات +٣٠٠ كلمة",
 "skill.vocab_300.desc": "وصف الدورة هنا…",
 "skill.vocab_300.duration": "ساعتان",
@@ -694,7 +613,34 @@ const QUESTIONS = [
 }
 
 ];
-const COURSES = [{"id":"foundations-a1","title":{"en":"English Foundations","ar":"أساسيات الإنجليزية"},"description":{"en":"Build a solid base in English: alphabet, pronunciation, everyday vocabulary and simple sentences.","ar":"ابنِ قاعدة قوية في الإنجليزية: الحروف والنطق والمفردات اليومية والجمل البسيطة."},"level":"A1","category":{"en":"Beginner","ar":"مبتدئ"},"duration":{"en":"6 weeks","ar":"٦ أسابيع"},"lessons":24,"price":{"en":"Free","ar":"مجاني"},"featured":true},{"id":"everyday-a2","title":{"en":"Everyday English","ar":"إنجليزية الحياة اليومية"},"description":{"en":"Speak confidently in daily situations — shopping, travel, work and social life.","ar":"تحدّث بثقة في المواقف اليومية — التسوّق والسفر والعمل والحياة الاجتماعية."},"level":"A2","category":{"en":"Speaking","ar":"تحدُّث"},"duration":{"en":"8 weeks","ar":"٨ أسابيع"},"lessons":32,"price":{"en":"$29","ar":"٢٩$"}},{"id":"grammar-b1","title":{"en":"Core Grammar Mastery","ar":"إتقان القواعد الأساسية"},"description":{"en":"Master tenses, conditionals, modals and sentence structure with clear Arabic explanations.","ar":"أتقِن الأزمنة والشرطية والأفعال الناقصة وتراكيب الجمل مع شرح عربي واضح."},"level":"B1","category":{"en":"Grammar","ar":"قواعد"},"duration":{"en":"10 weeks","ar":"١٠ أسابيع"},"lessons":40,"price": { "en": "49", "ar": "49" },"featured":true},{"id":"ielts-b2","title":{"en":"IELTS Preparation","ar":"التحضير لاختبار IELTS"},"description":{"en":"Targeted practice across the four IELTS sections with model answers and band-9 strategies.","ar":"تدريب مركّز على أقسام IELTS الأربعة مع نماذج إجابات واستراتيجيات الحصول على درجة ٩."},"level":"B2","category":{"en":"Exam Prep","ar":"تحضير اختبارات"},"duration":{"en":"12 weeks","ar":"١٢ أسبوعًا"},"lessons":48,"price":{"en":"$99","ar":"٩٩$"}},{"id":"business-c1","title":{"en":"Business English","ar":"الإنجليزية في الأعمال"},"description":{"en":"Professional communication: emails, meetings, presentations and negotiations.","ar":"التواصل المهني: البريد الإلكتروني والاجتماعات والعروض التقديمية والتفاوض."},"level":"C1","category":{"en":"Business","ar":"أعمال"},"duration":{"en":"8 weeks","ar":"٨ أسابيع"},"lessons":32,"price":{"en":"$79","ar":"٧٩$"}},{"id":"academic-c2","title":{"en":"Academic Writing","ar":"الكتابة الأكاديمية"},"description":{"en":"Write essays, research papers and dissertations with academic rigor and clarity.","ar":"اكتب المقالات والأبحاث والرسائل الجامعية بدقة ووضوح أكاديمي."},"level":"C2","category":{"en":"Writing","ar":"كتابة"},"duration":{"en":"10 weeks","ar":"١٠ أسابيع"},"lessons":36,"price":{"en":"$89","ar":"٨٩$"}}];
+const COURSES = [
+  {
+    id: "foundations-a1",
+    title: {
+      en: "English Foundations",
+      ar: "أساسيات الإنجليزية"
+    },
+    description: {
+      en: "Build a solid base in English: alphabet, pronunciation, everyday vocabulary and simple sentences.",
+      ar: "ابنِ قاعدة قوية في الإنجليزية: الحروف والنطق والمفردات اليومية والجمل البسيطة."
+    },
+    level: "A1",
+    category: {
+      en: "Beginner",
+      ar: "مبتدئ"
+    },
+    duration: {
+      en: "6 weeks",
+      ar: "٦ أسابيع"
+    },
+    lessons: 24,
+    price: {
+      en: "Free",
+      ar: "مجاني"
+    },
+    featured: true
+  }
+];
 const LEVEL_DESCRIPTIONS = {
   A1:{
     title:{
