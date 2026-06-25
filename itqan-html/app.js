@@ -103,11 +103,11 @@ const DICT = {
 "course.foundation.level": "Beginner",
 "course.foundation.duration": "6 weeks",
 "course.foundation.lessons": "24 lessons",
-"course.foundation.price": "Free",
+"course.foundation.price": "59 SAR",
 
 "results.viewCourses": "View Courses →",
 "filter.all": "All",
-"filter.free": "Free",
+"filter.free": "59 SAR",
 "home.ready.cta": "View Courses"
   },
 
@@ -218,7 +218,7 @@ const DICT = {
 "course.foundation.level": "مبتدئ",
 "course.foundation.duration": "٦ أسابيع",
 "course.foundation.lessons": "٢٤ درسًا",
-"course.foundation.price": "مجاني",
+"course.foundation.price": "٥٩ ريال",
 
 "skill.vocab_300.title": "مفردات +٣٠٠ كلمة",
 "skill.vocab_300.desc": "وصف الدورة هنا…",
@@ -401,7 +401,7 @@ const DICT = {
 "skill.foundation.lessons": "١٠ دروس",
 "results.viewCourses": "عرض الدورات ←",
 "filter.all": "الكل",
-"filter.free": "مجاني",
+"filter.free": "٥٩ ريال",
 "home.ready.cta": "عرض الدورات"
   }
 };
@@ -617,8 +617,8 @@ const COURSES = [
   {
     id: "foundations-a1",
     title: {
-      en: "English Foundations",
-      ar: "أساسيات الإنجليزية"
+      en: "Foundation Course",
+      ar: "الدورة التأسيسية"
     },
     description: {
       en: "Build a solid base in English: alphabet, pronunciation, everyday vocabulary and simple sentences.",
@@ -635,8 +635,8 @@ const COURSES = [
     },
     lessons: 24,
     price: {
-      en: "Free",
-      ar: "مجاني"
+      en: "59",
+      ar: "٥٩"
     },
     featured: true
   }
