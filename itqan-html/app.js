@@ -431,7 +431,7 @@ const QUESTIONS = [
   },
   {
     id: 3,
-    level: "A1",
+    level: "A2",
     section: "Grammar",
     prompt: "We ___ to the beach last weekend.",
     options: ["go", "gone", "went", "going"],
@@ -455,7 +455,7 @@ const QUESTIONS = [
   },
   {
     id: 6,
-    level: "A2",
+    level: "B1",
     section: "Grammar",
     prompt: "I ___ this phone for two years.",
     options: ["have had", "had", "have", "having"],
@@ -492,7 +492,7 @@ const QUESTIONS = [
   },
   {
     id: 10,
-    level: "A1",
+    level: "A2",
     section: "Vocabulary",
     prompt: "Choose the word closest in meaning to happy.",
     options: ["Angry", "Glad", "Weak", "Quiet"],
@@ -500,7 +500,7 @@ const QUESTIONS = [
   },
   {
     id: 11,
-    level: "A2",
+    level: "B1",
     section: "Vocabulary",
     prompt: "We need to ___ a decision before the meeting.",
     options: ["do", "make", "build", "create"],
@@ -508,7 +508,7 @@ const QUESTIONS = [
   },
   {
     id: 12,
-    level: "A2",
+    level: "B2",
     section: "Vocabulary",
     prompt: "Choose the word closest in meaning to reliable.",
     options: ["Busy", "Trustworthy", "Expensive", "Modern"],
@@ -516,7 +516,7 @@ const QUESTIONS = [
   },
   {
     id: 13,
-    level: "B1",
+    level: "B2",
     section: "Vocabulary",
     prompt: "Despite several difficulties, the team remained ___ and completed the project on time.",
     options: ["careless", "determined", "confused", "nervous"],
@@ -567,7 +567,7 @@ const QUESTIONS = [
 
   {
   id: 17,
-  level: "A2",
+  level: "A1",
   section: "Listening",
   prompt: "Where does Nawaf work?",
   options: ["In a school", "In a bank", "In a hospital", "In a hotel"],
@@ -585,7 +585,7 @@ const QUESTIONS = [
 },
 {
   id: 19,
-  level: "A2",
+  level: "B1",
   section: "Listening",
   prompt: "Why did Lina change her plans?",
   options: [
@@ -599,7 +599,7 @@ const QUESTIONS = [
 },
 {
   id: 20,
-  level: "A2",
+  level: "B2",
   section: "Listening",
   prompt: "What is the managers' concern?",
   options: [
@@ -756,9 +756,12 @@ function getSkillLevel(answers, section){
   }
 
   const pct = lvl => getPercentage(stats[lvl].correct, stats[lvl].total);
-  if(pct('B2') >= 70 && pct('B1') >= 70 && pct('A2') >= 70 && pct('A1') >= 70) return 'B2';
-  if(pct('B1') >= 70 && pct('A2') >= 70 && pct('A1') >= 70) return 'B1';
-  if(pct('A2') >= 70 && pct('A1') >= 70) return 'A2';
+  const hasLevel = lvl => stats[lvl].total > 0;
+  const meets = lvl => hasLevel(lvl) && pct(lvl) >= 70;
+
+  if (meets('B2') && meets('B1') && meets('A2') && meets('A1')) return 'B2';
+  if (meets('B1') && meets('A2') && meets('A1')) return 'B1';
+  if (meets('A2') && meets('A1')) return 'A2';
   return 'A1';
 }
 
