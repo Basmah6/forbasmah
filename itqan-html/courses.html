@@ -211,7 +211,7 @@ function renderSkill(skill, level){
         <span class="lvl-pill lvl-pill-sm">
           ${
   c.level === "Free"
-    ? (getLang() === "ar" ? "مجاني" : "Free")
+    ? (getLang() === "ar" ? "A1" : "A1")
     : c.level.startsWith("+")
       ? "+" + formatNumber(c.level.replace("+",""))
       : c.level
