@@ -77,7 +77,7 @@ const DICT = {
     "courses.featured":"Featured courses",
     "courses.filter":"Filter by level:",
     "courses.all":"All",
-    "courses.lessons":"lessons",
+    "courses.lessons":"Units",
     "courses.enroll":"Enroll now",
     "courses.details":"View details",
     "courses.empty":"No courses for this level yet.",
@@ -98,11 +98,11 @@ const DICT = {
 "section.Featured": "Featured Courses",
 
 "course.foundation.title": "Foundation Course",
-"course.foundation.desc": "Build a solid base in English: alphabet, pronunciation, everyday vocabulary and simple sentences.",
+"course.foundation.desc": "A fun and interactive journey to learn English from scratch with clear, simple steps for everyone.",
 "course.foundation.button": "Enroll now →",
 "course.foundation.level": "Beginner",
 "course.foundation.duration": "6 weeks",
-"course.foundation.lessons": "24 lessons",
+"course.foundation.lessons": "6 Units",
 "course.foundation.price": "59",
 
 "results.viewCourses": "View Courses →",
@@ -191,7 +191,7 @@ const DICT = {
     "courses.featured":"الدورات المميَّزة",
     "courses.filter":"تصفية حسب المستوى:",
     "courses.all":"الكل",
-    "courses.lessons":"درسًا",
+    "courses.lessons":"وحدات",
     "courses.enroll":"سجّل الآن",
     "courses.details":"عرض التفاصيل",
     "courses.empty":"لا توجد دورات لهذا المستوى حتى الآن.",
@@ -213,11 +213,11 @@ const DICT = {
 "section.Featured": "الدورات المميزة",
 
 "course.foundation.title": "الدورة التأسيسية",
-"course.foundation.desc": "ابنِ قاعدة قوية في الإنجليزية: الحروف والنطق والمفردات اليومية والجمل البسيطة.",
+"course.foundation.desc": "رحلة تفاعلية لتعلّم الإنجليزية من الصفر حتى الإتقان الأساسي … بطريقة ممتعة، تفاعلية، وواضحة للجميع.",
 "course.foundation.button": "سجّل الآن →",
 "course.foundation.level": "مبتدئ",
 "course.foundation.duration": "٦ أسابيع",
-"course.foundation.lessons": "٢٤ درسًا",
+"course.foundation.lessons": "٦ وحدات",
 "course.foundation.price": "٥٩",
 
 "skill.vocab_300.title": "مفردات +٣٠٠ كلمة",
@@ -381,24 +381,24 @@ const DICT = {
 "skill.reading_b2.title": "قراءة المستوى B2",
 "skill.reading_b2.desc": "وصف الدورة هنا…",
 "skill.reading_b2.duration": "ساعتان",
-"skill.reading_b2.lessons": "١٠ دروس",
+"skill.reading_b2.lessons": "٦ وحدات",
 "skill.reading_b2.price": "7.99",
 
 "skill.reading_c1.title": "قراءة المستوى C1",
 "skill.reading_c1.desc": "وصف الدورة هنا…",
 "skill.reading_c1.duration": "ساعتان",
-"skill.reading_c1.lessons": "١٠ دروس",
+"skill.reading_c1.lessons": "٦ وحدات",
 "skill.reading_c1.price": "8.99",
 
 "skill.reading_c2.title": "قراءة المستوى C2",
 "skill.reading_c2.desc": "وصف الدورة هنا…",
 "skill.reading_c2.duration": "ساعتان",
-"skill.reading_c2.lessons": "١٠ دروس",
+"skill.reading_c2.lessons": "٦ وحدات",
 "skill.reading_c2.price": "9.99",
 "skill.foundation.title": "الدورة التأسيسية",
-"skill.foundation.desc": "ابنِ أساسًا قويًا في اللغة الإنجليزية.",
+"skill.foundation.desc": "رحلة تفاعلية لتعلّم الإنجليزية من الصفر حتى الإتقان الأساسي … بطريقة ممتعة، تفاعلية، وواضحة للجميع.",
 "skill.foundation.duration": "ساعتان",
-"skill.foundation.lessons": "١٠ دروس",
+"skill.foundation.lessons": "٦ وحدات",
 "results.viewCourses": "عرض الدورات ←",
 "filter.all": "الكل",
 "filter.free": "<img src=\"../images/SARIcon.png\" alt=\"SAR\" class=\"currency-icon\"> ٥٩",
@@ -621,8 +621,8 @@ const COURSES = [
       ar: "الدورة التأسيسية"
     },
     description: {
-      en: "Build a solid base in English: alphabet, pronunciation, everyday vocabulary and simple sentences.",
-      ar: "ابنِ قاعدة قوية في الإنجليزية: الحروف والنطق والمفردات اليومية والجمل البسيطة."
+      en: "A fun and interactive journey to learn English from scratch with clear, simple steps for everyone.",
+      ar: "رحلة تفاعلية لتعلّم الإنجليزية من الصفر حتى الإتقان الأساسي … بطريقة ممتعة، تفاعلية، وواضحة للجميع."
     },
     level: "A1",
     category: {
@@ -633,7 +633,7 @@ const COURSES = [
       en: "6 weeks",
       ar: "٦ أسابيع"
     },
-    lessons: 24,
+    lessons: 6,
     price: {
       en: "59",
       ar: "٥٩"
